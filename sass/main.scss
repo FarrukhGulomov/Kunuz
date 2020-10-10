@@ -1,0 +1,643 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+
+
+
+//COLORS
+
+$text-color:#000000;
+$hover-color:#007bff;
+$btn-danger:#D80943;
+$btn-border-color:#17206A;
+$timecolor:#000000;
+
+
+//FONT-SIZE
+$nav-size:14px;
+$btn-covid-size:10px;
+$btn-language-size:12px;
+$mr-20:20px;
+$mr-15:15px;
+
+//FONTS
+$font-f-main: 'Montserrat';
+//  BTN 
+@mixin btn-covid {
+padding:9px 20px 9px 40px;
+border-radius: 18.5px;
+border-color: transparent;
+cursor: pointer;
+outline: none;
+color: #ffffff;
+font-family: $font-f-main;
+}
+@mixin btn($w,$h){   
+width:$w;
+height: $h;
+border: 1px solid $hover-color;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+&:active{
+.fa-search, .fa-user, 
+.fa-chevron-circle-down{
+color:$hover-color
+}}
+        
+}
+
+@mixin news-text ($fsize,$lheight){
+font-size: $fsize;
+color:$text-color;
+font-family: $font-f-main;
+text-decoration: none;
+line-height: $lheight;
+transition: all 0.3s ease-in-out;
+&:hover{
+text-decoration: underline;
+color: $hover-color;
+    }
+}
+
+
+
+
+*{
+padding: 0;
+margin: 0;
+font-family: sans-serif;
+box-sizing: border-box;
+}
+
+*::after,
+*::before{
+box-sizing: border-box;
+}
+
+
+// VAR. CLASSES 
+
+
+
+.container-fluid{
+width: 1366px;
+}
+.second-news{
+background-color:#e2e2e2;
+margin-top: 30px;
+margin-bottom:20px;
+}
+.container{
+width: 1366px;
+margin: 0 auto;
+}
+
+.t-right{
+text-align: right;
+}
+.t-center{
+text-align: center;
+}
+.news-t-left{
+text-align: left;
+}
+
+
+
+.row{
+  
+width: 100%;    
+display: flex;
+flex-wrap: wrap;
+
+.col-auto{
+width: 100%;
+}
+.col-1{
+width: 8.333333%;
+}
+.col-2{
+width: 16.666667%;
+}
+.col-3{
+width: 25%;
+}
+.col-4{
+width: 33.333333%;
+}
+.col-5{
+width: 41.666667%;
+}
+.col-6{
+width: 50%;
+}
+
+.col-7{
+width:58.333333% ;
+}
+.col-8{
+width:66.666667% ;
+}
+.col-9{
+width:75% ;
+}
+.col-10{
+width: 83.333333%;
+}
+.col-11{
+width: 91.666667%;
+}
+.col-12{
+width: 100%;
+}
+}
+
+.d-flex{
+display: flex;
+}
+.j-content-between {
+justify-content: space-between;
+}
+.align-items-center{
+align-items: center;
+}
+.center{
+justify-content: center;
+
+}
+.j-content-right{
+justify-content: flex-end;
+}
+
+.navbar-item{
+list-style: none;
+.navbar-link,a{
+text-decoration: none;
+display: inline-block;
+}
+
+}
+.bg-color{
+background-color:rgb(233, 242, 248);}
+
+.mt-1{
+margin-top: 20px;
+}
+
+.mt-2{
+margin-top: 30px;
+}
+.img-fluid-news{
+width: 100%;
+height: 200px;
+display: block;
+}
+
+.text-center{
+text-align: center;
+}
+
+
+.left-card{
+margin-left: 20px;
+margin-bottom: 18px;
+padding-bottom: 18px;
+border-bottom: 1px solid #ccc;
+small{
+font-size: 12px;
+display: block;
+margin-bottom: 10px;
+
+}
+a{
+@include news-text(14px,21px)
+}
+
+
+}
+// end variab classes
+
+
+nav{
+.header-banner img{
+    width: 100%;
+    height: 10%;
+}
+.mynavbar{
+padding-top: 15px;
+padding-bottom: 15px;   
+
+.navbar-left{
+.navbar-item{
+margin-right: $mr-20;
+.navbar-link{
+display: block;
+color:$text-color;
+font: { 
+family:'Montserrat';
+size: $nav-size;
+weight: 600;
+}
+
+&:hover {
+color:$hover-color;
+}
+transition: 0.5s ease;
+
+
+}
+}
+}
+.navbar-right{
+.navbar-item:not(:last-child){
+        margin-right: $mr-15;
+}
+.btn{
+@include btn-covid;
+font-size: $btn-covid-size;
+background-color:$btn-danger;
+
+position: relative;
+&::after{
+content: "";
+background: {
+image: url('https://kun.uz/assets/2ed6cdd/img/cell.svg');
+size: 55%;
+position: center;
+repeat:no-repeat;
+}
+width: 31px;
+background-color: red;
+height: 31px;
+position: absolute;
+left: 0;
+top: 0;
+border-radius: 18.5px;
+
+}
+transition: 0.5s ease;
+&:hover{
+background-color: #ff1759;
+}
+
+}
+.btn-search{
+@include btn(27px,27px);
+.fa-search{
+font-size: 12px;
+display: block;
+line-height: 27px;
+color: $hover-color;
+
+}
+
+}
+.btn-user{
+@include btn(27px,27px);
+margin-top: -5px;
+.fa-user{
+color: $hover-color;
+font-size: 18px;
+
+}
+}
+.btn-language{
+border: 1px solid;
+padding:7px 34px 7px 16px;  //  7 34 7 16
+border-radius: 18.5px;
+border-color: $hover-color;
+font-size: $btn-language-size;
+position: relative;
+color: $hover-color;
+
+
+
+&::after{
+content: "";
+width: 27px;
+height: 27px;
+border-radius: 50%;
+border: 1px solid blue;
+position: absolute;
+top: 50%;
+right: 0;
+transform: translate(0%,-50%);
+
+
+
+}
+.fa-chevron-down{
+display: block;
+font-size: 16px;
+color: #17206A;
+position: absolute;
+right: 10px;
+top: 50%;
+right: 0%;
+transform: translate(-50%,-50%);
+line-height: 27px;
+color: $hover-color;}}}}}
+.coronavirus-info{
+.covid-uzb-info{
+border: 1px solid #ccc;
+padding-top: 25px;
+padding-bottom: 25px;
+padding-left: 30px;
+padding-right: 30px;
+.about-covid-uzb {
+img{
+display: block;
+
+
+}
+a {
+font-size: 18px;
+line-height: 24px;
+text-decoration: none;
+display: block;
+font-family: $font-f-main;
+margin-left: 15px;
+}
+
+
+}
+.covid-news{
+& > div{
+border-left: 2px solid #cccccc;
+padding-left: 10px;
+}
+img{
+width: 40px;
+height: 40px;
+margin-right: 25px;
+display: block;
+
+
+}
+.text-covid{
+font-size: 18px;
+color: #777575;
+line-height: 24px;
+}
+p{  font-size: 28px;
+color: #E1084D;
+span{
+font-size: 16px;
+}
+}
+}
+}
+}
+
+.main-content{
+padding-top: 20px;
+padding-bottom: 20px;
+
+.card{
+div{
+width:50%;
+}
+margin-bottom: 25px;
+.left-img-fluid{
+width: 100%;
+min-height: 100%;
+object-fit:cover;
+}
+.card-body{
+padding: 25px;
+small{
+line-height: 20px;
+display: block;
+opacity: 0.8;
+color: $timecolor;
+padding-bottom: 10px;
+
+i{
+margin-right: 5px;
+}
+}
+.main-news{
+@include news-text(24px,28px)
+
+
+}
+p{
+color: $text-color;
+opacity: 0.8;
+padding-top: 20px;
+line-height: 26px;
+}
+
+
+}
+}
+.news-center{
+
+.left-img{
+width: 160px;
+height: 108px;
+margin-right: 15px;
+}
+.card-1{
+box-sizing: border-box;
+.card-body{
+small{
+font-size: 12px;
+display: block;
+color: $timecolor;
+opacity: 0.8;
+padding-bottom: 10px;
+i{
+font-size: 16px;
+margin-right: 5px;
+display: inline-block;
+color: rgb(85, 85, 85);
+}
+}
+a{
+@include news-text(14px,21px);
+font-weight: normal;
+}
+}
+
+}
+}
+.bottom-news-content{
+.bottom-news-link {
+ a:first-child{
+font-size: 18px;
+color: $text-color;
+line-height: 21px;
+text-decoration: none;
+font-family: $font-f-main;
+i{
+font-size: 16px;
+margin-right: 10px;
+color: #000000;
+
+}
+}
+a:last-child{
+font-size: 16px;
+color:#17206A;
+transition: all 0.3s ease;
+&:hover{
+text-decoration: none;
+color: $hover-color;
+}
+}
+} 
+.news{
+width: 100%;
+.ml-10{
+margin-left: 10px;
+}
+.ml-20{
+margin-left: 20px;
+}
+a{
+color: $text-color;
+font-size: 17px;
+font-family: $font-f-main;
+line-height: 21px;
+text-align: justify;
+text-decoration: none;
+&:hover{
+text-decoration: underline;
+color: $hover-color;
+}
+transition: all .5s linear;
+img{
+transition: all .5s linear;
+width: 320px;
+height: 186px;
+margin-bottom: 15px;}
+&:hover +div > a  {
+text-decoration: underline;
+color: $hover-color;    
+}
+}
+
+
+}
+
+
+}
+
+//----------------NEWS CONTENT RIGHT SIDE-----------------
+.right-news{
+.left-news-link{
+margin-bottom: 20px;
+.about-link{
+font-size: 18px;
+color: #000000;
+line-height: 21px;
+font-family: $font-f-main;  
+text-decoration: none;  
+.fa-circle{
+margin-right: 10px;
+margin-left: 20px;
+font-size: 16px;
+color: #000000;
+}
+}
+}
+.btn-right-news{
+margin-top: 20px;
+margin-left: 20px;
+width: 100%;
+text-align: center;
+.btn-outline{
+width: 100%;
+border: 1px solid #17206A;
+text-decoration: none;
+font-size: 13px;
+line-height: 16px;
+font-weight: 600;
+padding: 13px 40px;
+display: inline-block;
+color: #17206A;
+font-family: $font-f-main;
+transition: all 0.5s ease;
+&:hover{
+color: #ffffff;
+background-color: #17206A;
+border-color: transparent;
+}
+
+
+}
+}
+}
+
+
+
+}
+
+.second-news-content{
+.second-news img{
+max-width: 100%;
+margin: 0 auto;
+display: block;
+}
+.bottom-news-link{
+margin-bottom: 20px;
+a{
+text-decoration:none;
+font-size: 18px;
+font-weight: 700;
+font-family: $font-f-main;
+color:$text-color;
+i{
+margin-right: 10px;
+font-size: 16px;
+}
+}
+} 
+.sec-news-content{
+.card-lg{
+width: 100%;
+img{
+width: 96%;
+display: block;
+margin-bottom: 20px;
+cursor: pointer;
+transition: all 0.3s ease-in-out;
+&:hover + a{
+text-decoration: underline;
+color: $hover-color;
+}
+
+}
+a{
+@include news-text(20px,28px);
+
+
+}
+p{
+margin-top: 25px;
+color:$text-color;
+font-size: 14px;
+line-height: 24px;
+opacity: 0.9;
+}
+}
+.card{
+&:nth-child(2),&:first-child{
+margin-right:25px;}
+img{
+display: block;
+margin-bottom: 15px;}
+a{
+@include news-text(16px,21px);}}}
+.card-bottom{   
+margin-top: 25px;}
+}
+
+
+
+
+// BTN LANGUAGES  WITH JS   //
+
+
